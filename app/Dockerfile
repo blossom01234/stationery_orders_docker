@@ -10,7 +10,6 @@ RUN apt-get install tzdata -y
 RUN ln -fs /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 RUN dpkg-reconfigure --frontend noninteractive tzdata
 
-RUN apt-get upgrade -y
 RUN apt-get update && apt-get install -y \
     curl \
     git \
@@ -20,7 +19,8 @@ RUN apt-get update && apt-get install -y \
     zlib1g-dev \
     libffi-dev \
     libyaml-dev \
-    mysql-client
+    mysql-client \
+    libmariadb-dev
 
 RUN mkdir /project
 WORKDIR /project
