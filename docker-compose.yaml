@@ -9,9 +9,6 @@ services:
       - stationery-orders-db-volume:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: password
-      MYSQL_USER: dbuser
-      MYSQL_PASSWORD: password
-      MYSQL_DATABASE: stationery-orders
 
   stationery-orders-app:
    depends_on:
