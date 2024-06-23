@@ -1,0 +1,27 @@
+version: '3.5'
+services:
+  stationery-orders-db:
+    build: ./db
+    command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
+    ports:
+    - "3306:3306"
+    volumes:
+      - stationery-orders-db-volume:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: dbuser
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: stationery-orders
+
+  stationery-orders-app:
+   depends_on:
+    - stationery-orders-db
+   build: ./app
+   ports:
+    - "3001:3001"
+   volumes:
+    - stationery-orders-app-volume:/project/stationery_orders
+
+volumes:
+  stationery-orders-app-volume:
+  stationery-orders-db-volume:
