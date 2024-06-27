@@ -9,7 +9,7 @@ RUN apt-get update -y
 RUN apt-get install tzdata -y
 RUN ln -fs /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 RUN dpkg-reconfigure --frontend noninteractive tzdata
-
+RUN curl -fsSL https://deb.nodesource.com/setup_20.15 | bash -
 RUN apt-get update && apt-get install -y \
     curl \
     git \
@@ -20,7 +20,8 @@ RUN apt-get update && apt-get install -y \
     libffi-dev \
     libyaml-dev \
     mysql-client \
-    libmariadb-dev
+    libmariadb-dev \
+    nodejs
 
 RUN mkdir /project
 WORKDIR /project
