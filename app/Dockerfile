@@ -21,7 +21,8 @@ RUN apt-get update && apt-get install -y \
     libyaml-dev \
     mysql-client \
     libmariadb-dev \
-    nodejs
+    nodejs \
+    imagemagick
 
 RUN mkdir /project
 WORKDIR /project
